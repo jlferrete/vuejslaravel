@@ -2,13 +2,18 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Post Component</div>
+
+
+
+                <div class="card mb-3 mt-3" v-for="item in list">
+                    <div class="card-header" v-bind:href="item.slug" v-text="item.title"></div>
 
                     <div class="card-body">
-                        Contenido de mi componente
+                        <p class="card-text" v-text="item.body"></p>
                     </div>
                 </div>
+
+                <infinite-loading @infinite="infiniteHandler"></infinite-loading>
             </div>
         </div>
     </div>
@@ -16,8 +21,16 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                list: [],
+                page: 0
+            };
+        },
+        methods: {
+            infiniteHandler($state){
+                //conectar al servidor
+            }
         }
     }
 </script>

@@ -18,6 +18,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('posts', require('./components/PostsComponent.vue'));
+Vue.component('InfiniteLoading', require('vue-infinite-loading'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
