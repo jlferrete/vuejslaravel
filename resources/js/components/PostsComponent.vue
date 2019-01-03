@@ -12,7 +12,11 @@
                     </div>
                 </div>
 
-                <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+                <infinite-loading @infinite="infiniteHandler">
+                    <div slot="no-more">--</div>
+                    <div slot="spinner">Cargando...</div>
+                    <div slot="no-results">Sin resultados</div>
+                </infinite-loading>
             </div>
         </div>
     </div>
