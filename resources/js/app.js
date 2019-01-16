@@ -17,6 +17,7 @@ window.Vue = require('vue');
  * Eg. ./components/PostsComponent.vue -> <example-component></example-component>
  */
 
+Vue.component('app', require('./components/AppComponent.vue'));
 Vue.component('posts', require('./components/PostsComponent.vue'));
 Vue.component('InfiniteLoading', require('vue-infinite-loading'));
 

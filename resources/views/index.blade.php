@@ -12,7 +12,7 @@
     <body>
         <div id="app">
 
-            <posts></posts>
+            <app></app>
 
         </div>
 

@@ -14,3 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('posts', 'PostController@index');
+Route::get('post/{slug}', 'PostController@show');
+
