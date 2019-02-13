@@ -11,7 +11,12 @@
                         <div class="col-sm-4 offset-md-1 py-4">
                             <h4 class="text-white">Navegación</h4>
                             <ul class="list-unstyled">
-
+                                <li>
+                                   <router-link :to="{name: 'home'}">Home</router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{name: 'blog'}">Blog</router-link>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -28,15 +33,10 @@
                 </div>
             </div>
         </header>
+        <transition name="slide-fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
 
-                </p>
-            </div>
-        </section>
     </div>
 </template>
