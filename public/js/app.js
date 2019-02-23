@@ -25125,7 +25125,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(56);
+module.exports = __webpack_require__(57);
 
 
 /***/ }),
@@ -47883,13 +47883,31 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(1)
+        _c("div", { staticClass: "navbar navbar-dark bg-dark shadow-sm" }, [
+          _c(
+            "div",
+            { staticClass: "container d-flex justify-content-between" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-brand d-flex align-items-center",
+                  attrs: { to: { name: "home" } }
+                },
+                [_c("strong", [_vm._v("Rimorsoft online")])]
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ],
+            1
+          )
+        ])
       ]),
       _vm._v(" "),
       _c(
         "transition",
         { attrs: { name: "slide-fade", mode: "out-in" } },
-        [_c("router-view")],
+        [_c("router-view", { key: _vm.$route.fullPath })],
         1
       )
     ],
@@ -47913,34 +47931,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navbar navbar-dark bg-dark shadow-sm" }, [
-      _c("div", { staticClass: "container d-flex justify-content-between" }, [
-        _c(
-          "a",
-          {
-            staticClass: "navbar-brand d-flex align-items-center",
-            attrs: { href: "#" }
-          },
-          [_c("strong", [_vm._v("Rimorsoft online")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarHeader",
-              "aria-controls": "navbarHeader",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        )
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarHeader",
+          "aria-controls": "navbarHeader",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
   }
 ]
 render._withStripped = true
@@ -48167,7 +48172,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
         props: true
     }, {
         path: '*',
-        component: __webpack_require__(54)
+        component: __webpack_require__(55)
     }],
     mode: 'history' // Elimina el # (hash) de la URL
 }));
@@ -50978,9 +50983,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(53)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51020,6 +51025,58 @@ module.exports = Component.exports
 
 /***/ }),
 /* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['slug'],
+    data: function data() {
+        return {
+            post: {}
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        var url = 'http://vuejslaravel.local/api/post/' + this.slug;
+
+        axios.get(url).then(function (response) {
+            _this.post = response.data;
+        });
+    }
+});
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51027,29 +51084,38 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "jumbotron text-center" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h1", {
+          staticClass: "jumbotron-heading",
+          domProps: { textContent: _vm._s(_vm.post.title) }
+        })
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [_c("posts")], 1)
+        _c(
+          "div",
+          { staticClass: "col-md-8" },
+          [
+            _c("p", { domProps: { textContent: _vm._s(_vm.post.excerpt) } }),
+            _vm._v(" "),
+            _c("div", { domProps: { innerHTML: _vm._s(_vm.post.body) } }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h1", [_vm._v("Otros artículos")]),
+            _vm._v(" "),
+            _c("posts")
+          ],
+          1
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "jumbotron text-center" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("h1", { staticClass: "jumbotron-heading" }, [
-          _vm._v(".... Posts ....")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51060,7 +51126,7 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -51068,7 +51134,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51107,7 +51173,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51148,7 +51214,7 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
